@@ -1,4 +1,19 @@
+/**
+ * Main class which runs the whole application
+ *
+ * @author Szymon
+ * @version 1.1
+ * @since 1.0
+ */
 public class Main {
+  /** Sample array for sorting */
+  private int[] arrayToSort = {64, 34, 25, 12, 22, 11, 90};
+
+  /**
+   * sort array using selection sort algorithm
+   *
+   * @param arr array of integers to sort
+   */
   public static void selectionSort(int arr[]) {
     int n = arr.length;
 
@@ -16,7 +31,14 @@ public class Main {
     }
   }
 
-  // quick sort
+  /**
+   * helper methods for {@link Main#quickSort(int[], int, int) quickSort} method
+   *
+   * @param arr array of integers to sort
+   * @param low the index of the first element of the array
+   * @param high the index of last element of the array
+   * @return int the index of pivot
+   */
   public static int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = (low - 1); // index of smaller element
@@ -40,10 +62,18 @@ public class Main {
     return i + 1;
   }
 
+  /**
+   * sort array using quick sort algorithm
+   *
+   * @param arr array of integers to sort
+   * @param low the index of the first element of the array
+   * @param high the index of last element of the array
+   */
   public static void quickSort(int arr[], int low, int high) {
     if (low < high) {
-      /* pi is partitioning index, arr[pi] is
-      now at right place */
+      /*
+       * pi is partitioning index, arr[pi] is now at right place
+       */
       int pi = partition(arr, low, high);
 
       // Recursively sort elements before
@@ -53,6 +83,11 @@ public class Main {
     }
   }
 
+  /**
+   * sort array using bubble sort algorithm
+   *
+   * @param arr array of integers to sort
+   */
   public static void bubbleSort(int arr[]) {
     int n = arr.length;
     for (int i = 0; i < n - 1; i++)
@@ -65,15 +100,25 @@ public class Main {
         }
   }
 
+  /**
+   * print array
+   *
+   * @param arr array of integers to print
+   */
   public static void printArray(int arr[]) {
     int n = arr.length;
     for (int i = 0; i < n; ++i) System.out.print(arr[i] + " ");
     System.out.println();
   }
 
+  /**
+   * runs the whole application
+   *
+   * @param args command line arguments
+   */
   public static void main(String[] args) {
     int arr1[] = {64, 34, 25, 12, 22, 11, 90};
-    int arr2[] = arr1.clone(); // clone nie jest zalecane
+    int arr2[] = arr1.clone();
     int arr3[] = arr1.clone();
     // sort the array using bubbleSort
     bubbleSort(arr1);
